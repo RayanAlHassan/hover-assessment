@@ -1,0 +1,77 @@
+{{ 'section-product-selection.css' | asset_url | stylesheet_tag }}
+
+<div class="product-selection-section page-width">
+  <div class="header-meta">
+    {% if section.settings.trust_logo != blank %}
+      <img src="{{ section.settings.trust_logo | image_url: width: 100 }}" class="tp-logo" alt="Trustpilot">
+    {% endif %}
+    {% if section.settings.trust_stars != blank %}
+      <img src="{{ section.settings.trust_stars | image_url: width: 80 }}" class="tp-stars" alt="5 Stars">
+    {% endif %}
+    <span class="reviews-count">{{ section.settings.reviews_text }}</span>
+  </div>
+
+  <h1 class="product-title">{{ section.settings.title }}</h1>
+  <p class="product-price">{{ section.settings.price }}</p>
+
+  <ul class="short-description-list">
+    {%- assign bullets = section.settings.description | split: '<li>' -%}
+    {%- for bullet in bullets -%}
+      {%- if bullet contains '</li>' -%}
+        <li>
+          {% if section.settings.check_icon != blank %}
+            <img src="{{ section.settings.check_icon | image_url: width: 20 }}" class="check-icon">
+          {% endif %}
+          {{ bullet | replace: '</li>', '' }}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <div class="purchase-options">
+    {%- for block in section.blocks -%}
+      <div class="option-card {% if forloop.first %}active{% endif %}" onclick="updatePrice('{{ block.settings.price_atc }}', this)">
+        {% if block.settings.badge != blank %}<span class="badge">{{ block.settings.badge }}</span>{% endif %}
+        <p class="duration">{{ block.settings.duration }}</p>
+        <p class="sub-text">{{ block.settings.sub_text }}</p>
+        {% if block.settings.discount != blank %}<span class="discount-pill">{{ block.settings.discount }}</span>{% endif %}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <button class="add-to-cart-btn">
+    Ajouter au panier | <span id="atc-price">{{ section.settings.initial_price }}</span>
+  </button>
+  
+  <p class="shipping-info">{{ section.settings.shipping_text }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Product Selection",
+  "settings": [
+    { "type": "image_picker", "id": "trust_logo", "label": "Trustpilot Logo" },
+    { "type": "image_picker", "id": "trust_stars", "label": "Trustpilot Stars" },
+    { "type": "image_picker", "id": "check_icon", "label": "Checkmark Icon" },
+    { "type": "text", "id": "reviews_text", "label": "Review Count", "default": "17,102 avis" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Lorem ipsum" },
+    { "type": "text", "id": "price", "label": "Display Price", "default": "35,00€" },
+    { "type": "richtext", "id": "description", "label": "Bullet List" },
+    { "type": "text", "id": "initial_price", "label": "Button Price", "default": "35€" },
+    { "type": "inline_richtext", "id": "shipping_text", "label": "Shipping Text" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Plan Card",
+      "settings": [
+        { "type": "text", "id": "badge", "label": "Top Badge" },
+        { "type": "text", "id": "duration", "label": "Duration (e.g. 1 mois)" },
+        { "type": "text", "id": "sub_text", "label": "Subtext (Price per day)" },
+        { "type": "text", "id": "discount", "label": "Discount Pill" },
+        { "type": "text", "id": "price_atc", "label": "Price for Button" }
+      ]
+    }
+  ]
+}
+{% endschema %}

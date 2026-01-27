@@ -1,0 +1,49 @@
+/* Register Fonts again to ensure they load */
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url('{{ "gothambold-webfont.woff" | asset_url }}') format('woff');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: 'Gotham-Medium';
+    src: url('{{ "gothammedium-webfont.woff" | asset_url }}') format('woff');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Gotham-Book';
+    src: url('{{ "gothambook-webfont.woff" | asset_url }}') format('woff');
+    font-weight: normal;
+  }
+  
+  .product-accordions-section {
+    margin-top: 30px;
+    border-top: 1px solid #eeeeee;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    font-family: 'Gotham-Bold', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    color: #000000;
+  }
+  
+  .accordion-content {
+    display: none;
+    padding-bottom: 20px;
+    font-family: 'Gotham-Book', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444444;
+  }

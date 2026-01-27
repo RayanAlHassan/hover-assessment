@@ -1,0 +1,36 @@
+{{ 'section-product-accordions.css' | asset_url | stylesheet_tag }}
+
+<div class="product-accordions-section page-width">
+  {%- for block in section.blocks -%}
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('is-open')">
+        {{ block.settings.title }}
+        {% if section.settings.arrow_icon != blank %}
+          <img src="{{ section.settings.arrow_icon | image_url: width: 15 }}" class="acc-arrow">
+        {% endif %}
+      </button>
+      <div class="accordion-panel">
+        {{ block.settings.content }}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Product Accordions",
+  "settings": [
+    { "type": "image_picker", "id": "arrow_icon", "label": "Arrow Icon" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Accordion Row",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "content", "label": "Content" }
+      ]
+    }
+  ]
+}
+{% endschema %}
