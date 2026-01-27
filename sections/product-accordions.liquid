@@ -1,33 +1,63 @@
 {{ 'section-product-accordions.css' | asset_url | stylesheet_tag }}
 
 <div class="product-accordions-section page-width">
-  {%- for block in section.blocks -%}
-    <div class="accordion-item">
-      <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('is-open')">
-        {{ block.settings.title }}
-        {% if section.settings.arrow_icon != blank %}
-          <img src="{{ section.settings.arrow_icon | image_url: width: 15 }}" class="acc-arrow">
-        {% endif %}
-      </button>
-      <div class="accordion-panel">
-        {{ block.settings.content }}
+  <div class="product-accordions">
+    {%- for block in section.blocks -%}
+      <div class="accordion-item" {{ block.shopify_attributes }}>
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-title-wrapper">
+            {%- if block.settings.row_icon != blank -%}
+              <img src="{{ block.settings.row_icon | image_url: width: 25 }}" class="row-icon" alt="">
+            {%- endif -%}
+            <span class="accordion-title">{{ block.settings.title }}</span>
+          </div>
+          
+          {%- if section.settings.arrow_icon != blank -%}
+            {% comment %} The 'flip' logic is handled by the .accordion-arrow class in CSS {% endcomment %}
+            <img src="{{ section.settings.arrow_icon | image_url: width: 20 }}" class="accordion-arrow" alt="toggle">
+          {%- endif -%}
+        </button>
+        
+        <div class="accordion-content">
+          {{ block.settings.content }}
+        </div>
       </div>
-    </div>
-  {%- endfor -%}
+    {%- endfor -%}
+  </div>
 </div>
+
+<script>
+  function toggleAccordion(button) {
+    const item = button.parentElement;
+    const content = button.nextElementSibling;
+    const isOpen = item.classList.contains('is-open');
+    
+    // Toggle the display of the content
+    content.style.display = isOpen ? 'none' : 'block';
+    
+    // Toggle the class to trigger the CSS image flip
+    item.classList.toggle('is-open');
+  }
+</script>
 
 {% schema %}
 {
   "name": "Product Accordions",
   "settings": [
-    { "type": "image_picker", "id": "arrow_icon", "label": "Arrow Icon" }
+    { 
+      "type": "image_picker", 
+      "id": "arrow_icon", 
+      "label": "Dropdown Arrow Image",
+      "info": "This image will flip 180 degrees when the accordion opens."
+    }
   ],
   "blocks": [
     {
       "type": "row",
       "name": "Accordion Row",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "image_picker", "id": "row_icon", "label": "Row Icon (e.g., Leaf/Flask)" },
+        { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Accordion Title" },
         { "type": "richtext", "id": "content", "label": "Content" }
       ]
     }
