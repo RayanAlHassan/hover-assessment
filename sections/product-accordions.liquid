@@ -4,23 +4,44 @@
   <div class="product-accordions">
     {%- for block in section.blocks -%}
       <div class="accordion-item" {{ block.shopify_attributes }}>
-        <button class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
           <div class="accordion-title-wrapper">
-            {%- if block.settings.row_icon != blank -%}
-              <img src="{{ block.settings.row_icon | image_url: width: 25 }}" class="row-icon" alt="">
-            {%- endif -%}
+          
             <span class="accordion-title">{{ block.settings.title }}</span>
           </div>
-          
-          {%- if section.settings.arrow_icon != blank -%}
-            {% comment %} The image is now inside a container to help with the flip and alignment {% endcomment %}
-            <div class="arrow-container">
-               <img src="{{ section.settings.arrow_icon | image_url: width: 20 }}" class="accordion-arrow" alt="toggle">
-            </div>
-          {%- endif -%}
-        </button>
-        
-        <div class="accordion-content">
+
+          <button
+            type="button"
+            class="accordion-toggle"
+            aria-expanded="false"
+            aria-controls="accordion-content-{{ section.id }}-{{ forloop.index }}"
+            onclick="toggleAccordion(this)"
+          >
+            {%- if section.settings.arrow_icon != blank -%}
+              <img
+                src="{{ section.settings.arrow_icon | image_url: width: 40 }}"
+                class="accordion-arrow"
+                alt="Toggle"
+                loading="lazy"
+              >
+            {%- else -%}
+              {%- if block.settings.row_icon != blank -%}
+              <img
+                src="{{ block.settings.row_icon | image_url: width: 25 }}"
+                class="row-icon chevron-down" 
+                alt=""
+                loading="lazy"
+                style="margin-right: 10px;"
+              >
+            {%- endif -%}
+            {%- endif -%}
+          </button>
+        </div>
+
+        <div
+          class="accordion-content"
+          id="accordion-content-{{ section.id }}-{{ forloop.index }}"
+        >
           {{ block.settings.content }}
         </div>
       </div>
@@ -29,13 +50,14 @@
 </div>
 
 <script>
-  function toggleAccordion(button) {
-    const item = button.parentElement;
-    const content = button.nextElementSibling;
+  function toggleAccordion(toggleBtn) {
+    const item = toggleBtn.closest('.accordion-item');
+    const content = item.querySelector('.accordion-content');
     const isOpen = item.classList.contains('is-open');
-    
-    content.style.display = isOpen ? 'none' : 'block';
+
     item.classList.toggle('is-open');
+    content.style.display = isOpen ? 'none' : 'block';
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
   }
 </script>
 
@@ -43,9 +65,9 @@
 {
   "name": "Product Accordions",
   "settings": [
-    { 
-      "type": "image_picker", 
-      "id": "arrow_icon", 
+    {
+      "type": "image_picker",
+      "id": "arrow_icon",
       "label": "Dropdown Arrow Image"
     }
   ],
@@ -61,9 +83,7 @@
     }
   ],
   "presets": [
-    {
-      "name": "Product Accordions"
-    }
+    { "name": "Product Accordions" }
   ]
 }
 {% endschema %}
