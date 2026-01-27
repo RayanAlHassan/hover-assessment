@@ -10,49 +10,50 @@
 
 
 /* ////////rayan////// */
-/* HOME: split first 3 homepage sections into 2 columns (Dawn) */
-/* Apply grid on the product page area that contains those 3 sections */
-main#MainContent:has([id*="__custom_product_details"]):has([id*="__product_selection"]):has([id*="__product_accordions"]) {
+/* DESKTOP: 2-col grid */
+main#MainContent:has(.hs-left) {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 32px !important;
   align-items: start !important;
 }
 
-/* Remove Dawn vertical spacing between sections (otherwise you still feel it's stacked) */
-main#MainContent > .shopify-section + .shopify-section {
-  margin-top: 0 !important;
-}
-
-/* Place the 3 Shopify sections (these ARE the grid items) */
-main#MainContent > [id*="__custom_product_details"] {
+/* place the 3 sections by what they contain */
+main#MainContent > .shopify-section:has(.hs-left) {
   grid-column: 1 !important;
   grid-row: 1 / span 2 !important;
 }
-
-main#MainContent > [id*="__product_selection"] {
+main#MainContent > .shopify-section:has(.hs-right-top) {
   grid-column: 2 !important;
   grid-row: 1 !important;
 }
-
-main#MainContent > [id*="__product_accordions"] {
+main#MainContent > .shopify-section:has(.hs-right-bottom) {
   grid-column: 2 !important;
   grid-row: 2 !important;
 }
 
-/* Mobile */
-@media (max-width: 990px) {
-  main#MainContent:has([id*="__custom_product_details"]) {
-    grid-template-columns: 1fr !important;
-  }
-  main#MainContent > [id*="__custom_product_details"],
-  main#MainContent > [id*="__product_selection"],
-  main#MainContent > [id*="__product_accordions"] {
-    grid-column: auto !important;
-    grid-row: auto !important;
-  }
+/* remove Dawn spacing */
+main#MainContent > .shopify-section + .shopify-section {
+  margin-top: 0 !important;
 }
 
+/* MOBILE: FORCE STACK */
+@media (max-width: 990px) {
+  main#MainContent:has(.hs-left) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* neutralize any grid placement */
+  main#MainContent > .shopify-section:has(.hs-left),
+  main#MainContent > .shopify-section:has(.hs-right-top),
+  main#MainContent > .shopify-section:has(.hs-right-bottom) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+  }
+}
 
 
 /* /////////////rayan///////// */

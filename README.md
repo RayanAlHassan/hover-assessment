@@ -32,3 +32,11 @@ create for section 1 : sections/custom-product-details.liquid
 assets/custom-product-details.css
 
 finish the section one and  its responsivens as carousel 
+
+
+from 4:30 - 9pm 27/1
+
+create the section 2 (section selection ) , and the section 3 (section accordions) as liquid and css and apply them in the admin panem theme
+adjust the base css to structured the layout of 3 section od desktop and mobile 
+
+display non in custom css in admin panel for footer and header 
