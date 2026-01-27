@@ -14,11 +14,12 @@
     src: url('{{ "gothambook-webfont.woff" | asset_url }}') format('woff');
     font-weight: normal;
   }
+
   .accordion-header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between; /* This is key for right alignment */
     padding: 18px 0;
     background: none;
     border: none;
@@ -29,22 +30,33 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-grow: 1; /* This pushes everything else (the arrow) to the right */
+    text-align: left;
+  }
+  
+  .arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
   }
   
   .accordion-arrow {
     width: 14px;
     height: auto;
-    transition: transform 0.3s ease-in-out; /* Smooth flipping animation */
-    transform: rotate(0deg); /* Regular state */
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    /* Default: Regular state */
+    transform: rotate(0deg); 
   }
   
-  /* When open, flip the image */
+  /* THE FLIP: When the parent has 'is-open', rotate the arrow image inside it */
   .accordion-item.is-open .accordion-arrow {
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
   }
   
   .accordion-content {
-    display: none; /* Hidden by default */
+    display: none;
     padding-bottom: 20px;
     font-family: 'Gotham-Book', sans-serif;
     line-height: 1.6;

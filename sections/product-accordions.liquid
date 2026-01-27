@@ -13,8 +13,10 @@
           </div>
           
           {%- if section.settings.arrow_icon != blank -%}
-            {% comment %} The 'flip' logic is handled by the .accordion-arrow class in CSS {% endcomment %}
-            <img src="{{ section.settings.arrow_icon | image_url: width: 20 }}" class="accordion-arrow" alt="toggle">
+            {% comment %} The image is now inside a container to help with the flip and alignment {% endcomment %}
+            <div class="arrow-container">
+               <img src="{{ section.settings.arrow_icon | image_url: width: 20 }}" class="accordion-arrow" alt="toggle">
+            </div>
           {%- endif -%}
         </button>
         
@@ -32,10 +34,7 @@
     const content = button.nextElementSibling;
     const isOpen = item.classList.contains('is-open');
     
-    // Toggle the display of the content
     content.style.display = isOpen ? 'none' : 'block';
-    
-    // Toggle the class to trigger the CSS image flip
     item.classList.toggle('is-open');
   }
 </script>
@@ -47,8 +46,7 @@
     { 
       "type": "image_picker", 
       "id": "arrow_icon", 
-      "label": "Dropdown Arrow Image",
-      "info": "This image will flip 180 degrees when the accordion opens."
+      "label": "Dropdown Arrow Image"
     }
   ],
   "blocks": [
@@ -56,7 +54,7 @@
       "type": "row",
       "name": "Accordion Row",
       "settings": [
-        { "type": "image_picker", "id": "row_icon", "label": "Row Icon (e.g., Leaf/Flask)" },
+        { "type": "image_picker", "id": "row_icon", "label": "Row Icon" },
         { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Accordion Title" },
         { "type": "richtext", "id": "content", "label": "Content" }
       ]
