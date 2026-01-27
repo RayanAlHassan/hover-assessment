@@ -8,6 +8,30 @@
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
+
+/* ////////rayan////// */
+/* HOME: split first 3 homepage sections into 2 columns (Dawn) */
+.template-index main#MainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.template-index .hs-left { grid-column: 1; grid-row: 1 / span 2; }
+.template-index .hs-right-top { grid-column: 2; grid-row: 1; }
+.template-index .hs-right-bottom { grid-column: 2; grid-row: 2; }
+
+@media (max-width: 990px) {
+  .template-index main#MainContent { grid-template-columns: 1fr; }
+  .template-index .hs-left,
+  .template-index .hs-right-top,
+  .template-index .hs-right-bottom { grid-column: auto; grid-row: auto; }
+}
+
+
+
+/* /////////////rayan///////// */
 .product-card-wrapper .card,
 .contains-card--product {
   --border-radius: var(--product-card-corner-radius);
