@@ -1,75 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "custom_product_details_UQnLDq": {
+      "type": "custom-product-details",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "image_6Nwfc7": {
+          "type": "image",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/Packaging.jpg"
           }
         },
-        "button": {
-          "type": "buttons",
+        "image_CT3cwX": {
+          "type": "image",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/Image_homme.jpg"
+          }
+        },
+        "image_V4b7Fz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_gelule.jpg"
+          }
+        },
+        "image_NVFKDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_femme.jpg"
+          }
+        },
+        "image_VzBwjj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Gelules.jpg"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "image_6Nwfc7",
+        "image_CT3cwX",
+        "image_V4b7Fz",
+        "image_NVFKDP",
+        "image_VzBwjj"
       ],
+      "name": "Custom Product Details",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "heading": "Lorem Ipsum",
+        "description": ""
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "product_selection_UtCHni": {
+      "type": "product-selection",
+      "name": "Product Selection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "trust_logo": "shopify://shop_images/Trustpilot_-_logo.png",
+        "trust_stars": "shopify://shop_images/Trustpilot_-_etoiles.png",
+        "reviews1_text": "<strong>Excellent</strong>",
+        "reviews_text": "<strong>17.102 avis</strong>",
+        "title": "<strong>Lorem ipsum</strong>",
+        "price": "<strong>35,00€</strong>",
+        "main_text": "<p>Lorem ipsum dolor sit amet,<strong> consectetur adipiscing</strong> elit, sed do eiusmod tempor incididunt<strong> ut labore</strong> et dolore magna aliqua.</p>",
+        "check_icon": "shopify://shop_images/Check_icon_1.svg",
+        "bullet_1": "Lorem ipsum dolor sit amet",
+        "bullet_2": "Lorem ipsum dolor sit amet",
+        "bullet_3": "Lorem ipsum dolor sit amet",
+        "btn_text": "Ajouter au panier",
+        "initial_price": "35€",
+        "shipping_text": "<strong>En stock, </strong>commandez maintenant et soyez <strong>livré le 25 mars</strong>"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "custom_product_details_UQnLDq",
+    "product_selection_UtCHni"
   ]
 }

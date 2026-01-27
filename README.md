@@ -14,7 +14,9 @@ https://test-hover-store.myshopify.com/?preview_theme_id=156866511085
 
 
 
-after editing daft 
+after editing draft admin panel we pull changes to local by 
+shopify theme pull --theme 156866511085
+and when we add code in my local and need to show to admin panel we : 
 shopify theme push
 
 from 4-7pm 26/1 : 
