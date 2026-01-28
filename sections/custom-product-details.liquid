@@ -1,34 +1,62 @@
 {{ 'section-custom-product.css' | asset_url | stylesheet_tag }}
 <div class="hs-left">
-<div class="product-custom-details page-width">
-  <div class="custom-grid">
-    <div class="custom-media">
-      <div class="image-gallery-wrapper" id="Gallery-{{ section.id }}">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'image' -%}
-            <div class="gallery-item" {{ block.shopify_attributes }}>
-              {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'gallery-img' }}
-              {% endif %}
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
+  <div class="product-custom-details page-width">
+    <div class="custom-grid">
+      <div class="custom-media">
+        <div class="image-gallery-wrapper" id="Gallery-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'image' -%}
+              <div
+                class="gallery-item"
+                {{ block.shopify_attributes }}
+                style="--badge-bg: {{ section.settings.badge_bg }}; --badge-color: {{ section.settings.badge_color }};"
+              >
+                {%- if forloop.first and section.settings.badge_text != blank -%}
+                  <div class="hs-main-badge">{{ section.settings.badge_text }}</div>
+                {%- endif -%}
 
-    <div class="custom-content">
-       </div>
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', class: 'gallery-img' }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+ 
+    </div>
   </div>
-</div>
 </div>
 
 {% schema %}
 {
   "name": "Custom Product Details",
   "tag": "section",
+  "class": "section",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Lorem Ipsum" },
-    { "type": "richtext", "id": "description", "label": "Description" }
+    { "type": "richtext", "id": "description", "label": "Description" },
+
+    { "type": "header", "content": "Main image badge" },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Main image badge text",
+      "default": "Hautement dosé"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Badge text color",
+      "default": "#111111"
+    }
   ],
   "blocks": [
     {

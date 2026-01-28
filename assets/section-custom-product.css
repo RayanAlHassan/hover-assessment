@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    position: relative;
   }
   
   /* --- Desktop Styles --- */
@@ -12,7 +13,6 @@
     overflow: hidden;
     border-radius: 30px; /* Specific Figma Radius for Desktop */
     background-color: #f4f4f4;
-    max-height: 70vh;
   }
   
   /* First Image (Main Product) spans full width on Desktop */
@@ -74,3 +74,42 @@
       border-radius: 0 !important; /* No radius on mobile */
     }
   }
+
+/* =========================
+   FIGMA BADGE (editable via section settings)
+   ========================= */
+
+.image-gallery-wrapper .gallery-item:first-child .hs-main-badge {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  z-index: 5;
+
+  padding: 8px 16px;
+  border-radius: 100px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2px;
+
+  background: var(--badge-bg, #ffffff);
+  color: var(--badge-color, #111111);
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+/* Mobile badge tweaks */
+@media screen and (max-width: 750px) {
+  .image-gallery-wrapper .gallery-item:first-child .hs-main-badge {
+    top: 14px;
+    left: 14px;
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+}
+
+

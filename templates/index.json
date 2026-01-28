@@ -53,7 +53,10 @@
       "name": "Custom Product Details",
       "settings": {
         "heading": "Lorem Ipsum",
-        "description": ""
+        "description": "",
+        "badge_text": "Hautement dosé",
+        "badge_bg": "#f0f3e2",
+        "badge_color": "#111111"
       }
     },
     "product_selection_UtCHni": {
