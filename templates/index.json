@@ -58,6 +58,30 @@
     },
     "product_selection_UtCHni": {
       "type": "product-selection",
+      "blocks": {
+        "card_QhVw3f": {
+          "type": "card",
+          "settings": {
+            "badge": "Découverte",
+            "duration": "1 mois",
+            "sub_text": "Soit 1,16€ / jour",
+            "discount": ""
+          }
+        },
+        "card_wBPD9w": {
+          "type": "card",
+          "settings": {
+            "badge": "Meilleure offre",
+            "duration": "2 mois",
+            "sub_text": "Soit 1,05€ / jour",
+            "discount": "-10%"
+          }
+        }
+      },
+      "block_order": [
+        "card_QhVw3f",
+        "card_wBPD9w"
+      ],
       "name": "Product Selection",
       "settings": {
         "trust_logo": "shopify://shop_images/Trustpilot_-_logo.png",

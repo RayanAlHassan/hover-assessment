@@ -53,6 +53,27 @@
       </div>
     {%- endfor -%}
   </div>
+<div class="shipping-info">
+  {% if section.settings.shipping_part_1 != blank %}
+    <span class="ship-part {% if section.settings.shipping_bold_1 %}is-bold{% endif %}">
+      {{ section.settings.shipping_part_1 }}
+    </span>
+  {% endif %}
+
+  {% if section.settings.shipping_part_2 != blank %}
+    <span class="ship-part {% if section.settings.shipping_bold_2 %}is-bold{% endif %}">
+      {{ section.settings.shipping_part_2 }}
+    </span>
+  {% endif %}
+
+  {% if section.settings.shipping_part_3 != blank %}
+    <span class="ship-part {% if section.settings.shipping_bold_3 %}is-bold{% endif %}">
+      {{ section.settings.shipping_part_3 }}
+    </span>
+  {% endif %}
+</div>
+
+<div class="shipping-divider"></div>
 
   <div class="atc-container">
     <button class="add-to-cart-btn">

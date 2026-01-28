@@ -115,3 +115,33 @@
   font-size: 13px;
   font-family: 'Gotham-Book', sans-serif;
 }
+
+/* Shipping line (3 editable phrases) */
+.shipping-info {
+  margin-top: 15px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;         /* wraps on mobile */
+  gap: 4px;                /* spacing between phrases */
+  text-align: center;
+}
+
+.shipping-info .ship-part {
+  font-family: 'Gotham-Book', sans-serif;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.shipping-info .ship-part.is-bold {
+  font-family: 'Gotham-Bold', sans-serif;
+  font-weight: bold;
+}
+
+/* Divider under the shipping line (like screenshot) */
+.shipping-divider {
+  margin-top: 18px;
+  border-top: 1px solid #ededed;
+  width: 100%;
+}
