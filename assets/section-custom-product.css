@@ -1,0 +1,115 @@
+/* Container for the images */
+.image-gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    position: relative;
+  }
+  
+  /* --- Desktop Styles --- */
+  .image-gallery-wrapper .gallery-item {
+    width: 100%;
+    aspect-ratio: 328.5 / 330.86; /* Figma Proportions */
+    overflow: hidden;
+    border-radius: 30px; /* Specific Figma Radius for Desktop */
+    background-color: #f4f4f4;
+  }
+  
+  /* First Image (Main Product) spans full width on Desktop */
+  .image-gallery-wrapper .gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 1 / 1; 
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+/* --- Mobile View: Scrollable Carousel --- */
+@media screen and (max-width: 750px) {
+    .image-gallery-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 5px; 
+      padding: 0;
+      margin: 0 -1.5rem; /* Forces edge-to-edge images */
+      
+      /* Standardizes the height and hides the default OS scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: #000000 #e0e0e0;
+      padding-bottom: 15px; /* Space for the line below images */
+    }
+  
+    /* 1. THE MAIN LINE (GRAY WRAPPER) */
+    .image-gallery-wrapper::-webkit-scrollbar {
+      height: 3px; /* Figma Height: 3px */
+      display: block;
+    }
+  
+    .image-gallery-wrapper::-webkit-scrollbar-track {
+      background: #e0e0e0; /* Light gray background line */
+      border-radius: 100px; /* Figma: 100px Radius for the wrapper */
+      
+      /* THE SIDE PADDING: margin creates the 20px space on each side */
+      margin-left: 20px; 
+      margin-right: 20px;
+    }
+  
+    /* 2. THE MOVING LINE (BLACK THUMB) */
+    .image-gallery-wrapper::-webkit-scrollbar-thumb {
+      background: #000000; /* Figma: Black */
+      border-radius: 100px; /* Figma: 100px Radius for the moving part */
+    }
+  
+    /* Ensure images remain edge-to-edge with no radius on mobile */
+    .gallery-item {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      aspect-ratio: 328.5 / 330.86; /* Figma Proportions */
+      border-radius: 0 !important; /* No radius on mobile */
+    }
+  }
+
+/* =========================
+   FIGMA BADGE (editable via section settings)
+   ========================= */
+
+.image-gallery-wrapper .gallery-item:first-child .hs-main-badge {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  z-index: 5;
+
+  padding: 8px 16px;
+  border-radius: 100px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2px;
+
+  background: var(--badge-bg, #ffffff);
+  color: var(--badge-color, #111111);
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+/* Mobile badge tweaks */
+@media screen and (max-width: 750px) {
+  .image-gallery-wrapper .gallery-item:first-child .hs-main-badge {
+    top: 14px;
+    left: 14px;
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+}
+
+

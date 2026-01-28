@@ -1,0 +1,91 @@
+{{ 'section-product-accordions.css' | asset_url | stylesheet_tag }}
+<div class="hs-right-bottom">
+
+<div class="product-accordions-section page-width">
+  <div class="product-accordions">
+    {%- for block in section.blocks -%}
+      <div class="accordion-item" {{ block.shopify_attributes }}>
+        <div class="accordion-header">
+          <div class="accordion-title-wrapper">
+          
+            <span class="accordion-title">{{ block.settings.title }}</span>
+          </div>
+
+          <button
+            type="button"
+            class="accordion-toggle"
+            aria-expanded="false"
+            aria-controls="accordion-content-{{ section.id }}-{{ forloop.index }}"
+            onclick="toggleAccordion(this)"
+          >
+            {%- if section.settings.arrow_icon != blank -%}
+              <img
+                src="{{ section.settings.arrow_icon | image_url: width: 40 }}"
+                class="accordion-arrow"
+                alt="Toggle"
+                loading="lazy"
+              >
+            {%- else -%}
+              {%- if block.settings.row_icon != blank -%}
+              <img
+                src="{{ block.settings.row_icon | image_url: width: 25 }}"
+                class="row-icon chevron-down" 
+                alt=""
+                loading="lazy"
+                style="margin-right: 10px;height:28px; width:31px"
+              >
+            {%- endif -%}
+            {%- endif -%}
+          </button>
+        </div>
+
+        <div
+          class="accordion-content"
+          id="accordion-content-{{ section.id }}-{{ forloop.index }}"
+        >
+          {{ block.settings.content }}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+</div>
+
+<script>
+  function toggleAccordion(toggleBtn) {
+    const item = toggleBtn.closest('.accordion-item');
+    const content = item.querySelector('.accordion-content');
+    const isOpen = item.classList.contains('is-open');
+
+    item.classList.toggle('is-open');
+    content.style.display = isOpen ? 'none' : 'block';
+    toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Product Accordions",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "arrow_icon",
+      "label": "Dropdown Arrow Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Accordion Row",
+      "settings": [
+        { "type": "image_picker", "id": "row_icon", "label": "Row Icon" },
+        { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Accordion Title" },
+        { "type": "richtext", "id": "content", "label": "Content" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Product Accordions" }
+  ]
+}
+{% endschema %}

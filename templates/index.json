@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_product_details_UQnLDq": {
+      "type": "custom-product-details",
+      "blocks": {
+        "image_6Nwfc7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Packaging.jpg"
+          }
+        },
+        "image_CT3cwX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_homme.jpg"
+          }
+        },
+        "image_V4b7Fz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_gelule.jpg"
+          }
+        },
+        "image_NVFKDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_femme.jpg"
+          }
+        },
+        "image_VzBwjj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Gelules.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_6Nwfc7",
+        "image_CT3cwX",
+        "image_V4b7Fz",
+        "image_NVFKDP",
+        "image_VzBwjj"
+      ],
+      "name": "Custom Product Details",
+      "settings": {
+        "heading": "Lorem Ipsum",
+        "description": "",
+        "badge_text": "Hautement dosé",
+        "badge_bg": "#f0f3e2",
+        "badge_color": "#111111"
+      }
+    },
+    "product_selection_UtCHni": {
+      "type": "product-selection",
+      "blocks": {
+        "card_QhVw3f": {
+          "type": "card",
+          "settings": {
+            "badge": "<strong>Découverte</strong>",
+            "badge_bg": "#c8e4e6",
+            "duration": "<strong>1 mois</strong>",
+            "sub_text": "Soit 1,16€ / jour",
+            "discount": ""
+          }
+        },
+        "card_wBPD9w": {
+          "type": "card",
+          "settings": {
+            "badge": "<strong>Meilleure offre</strong>",
+            "badge_bg": "#f3f3f3",
+            "duration": "<strong>2 mois</strong>",
+            "sub_text": "Soit 1,05€ / jour",
+            "discount": "<strong>-10%</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "card_QhVw3f",
+        "card_wBPD9w"
+      ],
+      "name": "Product Selection",
+      "settings": {
+        "trust_logo": "shopify://shop_images/Trustpilot_-_logo.png",
+        "trust_stars": "shopify://shop_images/Trustpilot_-_etoiles.png",
+        "reviews1_text": "<strong>Excellent</strong>",
+        "reviews_text": "<strong>17.102 avis</strong>",
+        "title": "<strong>Lorem ipsum</strong>",
+        "price": "<strong>35,00€</strong>",
+        "main_text": "<p>Lorem ipsum dolor sit amet,<strong> consectetur adipiscing</strong> elit, sed do eiusmod tempor incididunt<strong> ut labore</strong> et dolore magna aliqua.</p>",
+        "check_icon": "shopify://shop_images/Check_icon_1.svg",
+        "bullet_1": "Lorem ipsum dolor sit amet",
+        "bullet_2": "Lorem ipsum dolor sit amet",
+        "bullet_3": "Lorem ipsum dolor sit amet",
+        "btn_text": "Ajouter au panier",
+        "initial_price": "35€",
+        "shipping_text": "<strong>En stock, </strong>commandez maintenant et soyez <strong>livré le 25 mars</strong>"
+      }
+    },
+    "product_accordions_Bcrbxp": {
+      "type": "product-accordions",
+      "blocks": {
+        "row_WL4gAa": {
+          "type": "row",
+          "settings": {
+            "row_icon": "shopify://shop_images/Dropdown_arrow_1.svg",
+            "title": "Bienfaits et Efficacité",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+          }
+        },
+        "row_h8rH8H": {
+          "type": "row",
+          "settings": {
+            "row_icon": "shopify://shop_images/Dropdown_arrow_1.svg",
+            "title": "Bienfaits et Efficacité",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+          }
+        },
+        "row_td3Ekd": {
+          "type": "row",
+          "settings": {
+            "row_icon": "shopify://shop_images/Dropdown_arrow_1.svg",
+            "title": "Bienfaits et Efficacité",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+          }
+        },
+        "row_8iVmdL": {
+          "type": "row",
+          "settings": {
+            "row_icon": "shopify://shop_images/Dropdown_arrow_1.svg",
+            "title": "Bienfaits et Efficacité",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_WL4gAa",
+        "row_h8rH8H",
+        "row_td3Ekd",
+        "row_8iVmdL"
+      ],
+      "name": "Product Accordions",
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom_product_details_UQnLDq",
+    "product_selection_UtCHni",
+    "product_accordions_Bcrbxp"
+  ]
+}

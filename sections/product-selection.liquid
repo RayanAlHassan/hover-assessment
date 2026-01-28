@@ -1,0 +1,140 @@
+{{ 'section-product-selection.css' | asset_url | stylesheet_tag }}
+
+<div class="hs-right-top">
+  <div class="product-selection-section page-width">
+    <div class="header-meta">
+      <div class="tp-container">
+        <span class="reviews-count">{{ section.settings.reviews1_text }}</span>
+
+        {% if section.settings.trust_stars != blank %}
+          <img src="{{ section.settings.trust_stars | image_url: width: 80 }}" class="tp-stars" alt="Stars">
+        {% endif %}
+
+        <span class="reviews-count">{{ section.settings.reviews_text }}</span>
+
+        {% if section.settings.trust_logo != blank %}
+          <img src="{{ section.settings.trust_logo | image_url: width: 80 }}" class="tp-logo" alt="Trustpilot">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="title-price-row">
+      <h1 class="product-title">{{ section.settings.title }}</h1>
+      <div class="product-price">{{ section.settings.price }}</div>
+    </div>
+
+    <div class="product-description">
+      {{ section.settings.main_text }}
+    </div>
+
+    <ul class="custom-check-list">
+      {% if section.settings.bullet_1 != blank %}
+        <li><img src="{{ section.settings.check_icon | image_url: width: 20 }}" class="check-img"> <span>{{ section.settings.bullet_1 }}</span></li>
+      {% endif %}
+      {% if section.settings.bullet_2 != blank %}
+        <li><img src="{{ section.settings.check_icon | image_url: width: 20 }}" class="check-img"> <span>{{ section.settings.bullet_2 }}</span></li>
+      {% endif %}
+      {% if section.settings.bullet_3 != blank %}
+        <li><img src="{{ section.settings.check_icon | image_url: width: 20 }}" class="check-img"> <span>{{ section.settings.bullet_3 }}</span></li>
+      {% endif %}
+    </ul>
+
+    <div class="purchase-grid">
+      {%- for block in section.blocks -%}
+        <div class="plan-card {% if forloop.first %}card-blue{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.badge != blank %}
+            <span
+              class="plan-badge"
+              style="background-color: {{ block.settings.badge_bg }};"
+            >
+              {{ block.settings.badge }}
+            </span>
+          {% endif %}
+
+          <div class="plan-content">
+            <h3 class="plan-duration">{{ block.settings.duration }}</h3>
+
+            <div class="wraper-subtext-discount">
+              {% if block.settings.discount != blank %}
+                <span class="plan-discount">{{ block.settings.discount }}</span>
+              {% endif %}
+              <div class="plan-subtext">{{ block.settings.sub_text }}</div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="shipping-info">
+      {% if section.settings.shipping_part_1 != blank %}
+        <span class="ship-part {% if section.settings.shipping_bold_1 %}is-bold{% endif %}">
+          {{ section.settings.shipping_part_1 }}
+        </span>
+      {% endif %}
+      {% if section.settings.shipping_part_2 != blank %}
+        <span class="ship-part {% if section.settings.shipping_bold_2 %}is-bold{% endif %}">
+          {{ section.settings.shipping_part_2 }}
+        </span>
+      {% endif %}
+      {% if section.settings.shipping_part_3 != blank %}
+        <span class="ship-part {% if section.settings.shipping_bold_3 %}is-bold{% endif %}">
+          {{ section.settings.shipping_part_3 }}
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="shipping-divider"></div>
+
+    <div class="atc-container">
+      <button class="add-to-cart-btn">
+        {{ section.settings.btn_text }} | {{ section.settings.initial_price }}
+      </button>
+      <div class="shipping-info">{{ section.settings.shipping_text }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Selection",
+  "settings": [
+    { "type": "image_picker", "id": "trust_logo", "label": "Trustpilot Logo" },
+    { "type": "image_picker", "id": "trust_stars", "label": "Trustpilot Stars" },
+    { "type": "inline_richtext", "id": "reviews1_text", "label": "Review Text 1", "default": "Excellent" },
+    { "type": "inline_richtext", "id": "reviews_text", "label": "Review Text", "default": "17.102 avis" },
+
+    { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Lorem ipsum" },
+    { "type": "inline_richtext", "id": "price", "label": "Price", "default": "35,00€" },
+    { "type": "richtext", "id": "main_text", "label": "Description Paragraph" },
+    { "type": "image_picker", "id": "check_icon", "label": "Checkmark Image" },
+    { "type": "inline_richtext", "id": "bullet_1", "label": "Bullet 1" },
+    { "type": "inline_richtext", "id": "bullet_2", "label": "Bullet 2" },
+    { "type": "inline_richtext", "id": "bullet_3", "label": "Bullet 3" },
+
+    { "type": "inline_richtext", "id": "btn_text", "label": "Button Text", "default": "Ajouter au panier" },
+    { "type": "inline_richtext", "id": "initial_price", "label": "Button Price", "default": "35€" },
+    { "type": "inline_richtext", "id": "shipping_text", "label": "Shipping Info", "default": "En stock, commandez maintenant" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Plan Card",
+      "limit": 2,
+      "settings": [
+        { "type": "inline_richtext", "id": "badge", "label": "Badge" },
+        { "type": "color", "id": "badge_bg", "label": "Badge background color", "default": "#c8e4e6" },
+
+        { "type": "inline_richtext", "id": "duration", "label": "Duration" },
+        { "type": "inline_richtext", "id": "sub_text", "label": "Subtext" },
+        { "type": "inline_richtext", "id": "discount", "label": "Discount" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Product Selection" }]
+}
+{% endschema %}
+
+
+
+
+
