@@ -62,8 +62,8 @@
         "card_QhVw3f": {
           "type": "card",
           "settings": {
-            "badge": "Découverte",
-            "duration": "1 mois",
+            "badge": "<strong>Découverte</strong>",
+            "duration": "<strong>1 mois</strong>",
             "sub_text": "Soit 1,16€ / jour",
             "discount": ""
           }
@@ -71,10 +71,10 @@
         "card_wBPD9w": {
           "type": "card",
           "settings": {
-            "badge": "Meilleure offre",
-            "duration": "2 mois",
+            "badge": "<strong>Meilleure offre</strong>",
+            "duration": "<strong>2 mois</strong>",
             "sub_text": "Soit 1,05€ / jour",
-            "discount": "-10%"
+            "discount": "<strong>-10%</strong>"
           }
         }
       },

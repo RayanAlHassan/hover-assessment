@@ -14,8 +14,9 @@
 main#MainContent:has(.hs-left) {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  gap: 32px !important;
+  gap: 45px !important;
   align-items: start !important;
+  padding:80px 50px;
 }
 
 /* place the 3 sections by what they contain */
@@ -151,7 +152,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 0 5rem;
+    /* padding: 0 5rem; */
   }
 
   .header.page-width,

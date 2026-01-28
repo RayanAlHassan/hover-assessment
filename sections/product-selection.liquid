@@ -1,5 +1,5 @@
 {{ 'section-product-selection.css' | asset_url | stylesheet_tag }}
-<div class="hs-right-top">
+<div class="hs-right-top" >
 
 <div class="product-selection-section page-width">
   <div class="header-meta">
@@ -45,11 +45,15 @@
         {% endif %}
         <div class="plan-content">
           <h3 class="plan-duration">{{ block.settings.duration }}</h3>
-          <div class="plan-subtext">{{ block.settings.sub_text }}</div>
-          {% if block.settings.discount != blank %}
+          <div class="wraper-subtext-discount" >
+           {% if block.settings.discount != blank %}
             <span class="plan-discount">{{ block.settings.discount }}</span>
           {% endif %}
+                    <div class="plan-subtext">{{ block.settings.sub_text }}</div>
+         
         </div>
+          </div>
+
       </div>
     {%- endfor -%}
   </div>
@@ -120,3 +124,10 @@
   "presets": [{ "name": "Product Selection" }]
 }
 {% endschema %}
+
+<style>
+
+.hs-right-top{
+width:45vw}
+
+</style>
