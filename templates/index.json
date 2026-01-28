@@ -63,6 +63,7 @@
           "type": "card",
           "settings": {
             "badge": "<strong>Découverte</strong>",
+            "badge_bg": "#c8e4e6",
             "duration": "<strong>1 mois</strong>",
             "sub_text": "Soit 1,16€ / jour",
             "discount": ""
@@ -72,6 +73,7 @@
           "type": "card",
           "settings": {
             "badge": "<strong>Meilleure offre</strong>",
+            "badge_bg": "#f3f3f3",
             "duration": "<strong>2 mois</strong>",
             "sub_text": "Soit 1,05€ / jour",
             "discount": "<strong>-10%</strong>"

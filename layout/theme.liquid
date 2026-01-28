@@ -372,5 +372,36 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const main = document.querySelector("main#MainContent");
+  if (!main) return;
+
+  const left = main.querySelector(":scope > .shopify-section:has(.hs-left)");
+  const rightTop = main.querySelector(":scope > .shopify-section:has(.hs-right-top)");
+  const rightBottom = main.querySelector(":scope > .shopify-section:has(.hs-right-bottom)");
+
+  // Only run when all 3 sections exist
+  if (!left || !rightTop || !rightBottom) return;
+
+  // If wrapper already exists, don't duplicate
+  if (main.querySelector(":scope > .hs-right-wrap")) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "hs-right-wrap";
+
+  // Insert wrapper right after left section (so it's 2 columns)
+  left.insertAdjacentElement("afterend", wrap);
+
+  // Move the two right sections inside wrapper
+  wrap.appendChild(rightTop);
+  wrap.appendChild(rightBottom);
+});
+</script>
+
   </body>
 </html>

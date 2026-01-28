@@ -10,56 +10,66 @@
 
 
 /* ////////rayan////// */
-/* DESKTOP: 2-col grid */
+main#MainContent{
+  padding: 80px 50px !important;
+
+}
+@media (min-width: 991px) {
+  main#MainContent:has(.hs-left) {
+    display: flex !important;
+    gap: 45px !important;
+    align-items: flex-start !important;
+    padding: 80px 50px !important;
+  }
+
+  /* left section takes half */
+  main#MainContent > .shopify-section:has(.hs-left) {
+    flex: 0 0 calc(50% - 22.5px) !important;
+    max-width: calc(50% - 22.5px) !important;
+  }
+
+  /* wrapper takes half and stacks the two right sections */
+  main#MainContent > .hs-right-wrap {
+    flex: 0 0 calc(50% - 22.5px) !important;
+    max-width: calc(50% - 22.5px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  main#MainContent > .hs-right-wrap > .shopify-section {
+    width: 100% !important;
+  }
+
+  /* remove Dawn section margins */
+  main#MainContent > .shopify-section + .shopify-section {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 990px) {
+
 main#MainContent:has(.hs-left) {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 45px !important;
-  align-items: start !important;
-  padding:80px 50px;
-}
-
-/* place the 3 sections by what they contain */
-main#MainContent > .shopify-section:has(.hs-left) {
-  grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
-}
-main#MainContent > .shopify-section:has(.hs-right-top) {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-}
-main#MainContent > .shopify-section:has(.hs-right-bottom) {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
-}
-
-/* remove Dawn spacing */
-main#MainContent > .shopify-section + .shopify-section {
-  margin-top: 0 !important;
-}
-
-/* MOBILE: FORCE STACK */
+  display: flex !important
+;
+  flex-direction: column !important;
+  gap: 24px !important;
+  padding: 40px 0px !important;
+}}
+/* Mobile = normal stacking */
 @media (max-width: 990px) {
   main#MainContent:has(.hs-left) {
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
-  padding:0px;
+    padding: 0 !important;
   }
 
-  /* DESKTOP: 2-col grid */
-main#MainContent:has(.hs-left) {
-  
-}
-  /* neutralize any grid placement */
-  main#MainContent > .shopify-section:has(.hs-left),
-  main#MainContent > .shopify-section:has(.hs-right-top),
-  main#MainContent > .shopify-section:has(.hs-right-bottom) {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
+  /* wrapper behaves like it doesn't exist on mobile */
+  main#MainContent > .hs-right-wrap {
+    display: contents !important;
   }
 }
+
 
 
 /* /////////////rayan///////// */

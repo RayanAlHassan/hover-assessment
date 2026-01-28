@@ -12,6 +12,7 @@
     overflow: hidden;
     border-radius: 30px; /* Specific Figma Radius for Desktop */
     background-color: #f4f4f4;
+    max-height: 70vh;
   }
   
   /* First Image (Main Product) spans full width on Desktop */
