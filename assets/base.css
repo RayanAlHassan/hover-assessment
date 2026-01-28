@@ -44,8 +44,13 @@ main#MainContent > .shopify-section + .shopify-section {
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
+  padding:0px;
   }
 
+  /* DESKTOP: 2-col grid */
+main#MainContent:has(.hs-left) {
+  
+}
   /* neutralize any grid placement */
   main#MainContent > .shopify-section:has(.hs-left),
   main#MainContent > .shopify-section:has(.hs-right-top),
